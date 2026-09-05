@@ -16,6 +16,7 @@ import {
   StickyNote,
   Award,
   Wrench,
+  Trophy,
 } from 'lucide-react';
 
 type Project = {
@@ -36,88 +37,119 @@ type ChatMessage = {
 const projects: Project[] = [
   {
     number: '01',
-    title: 'Vibee — T-Shirt E-Commerce',
-    category: 'Brand strategy · E-commerce',
-    description: 'Built a focused e-commerce concept around positioning, product storytelling, and an online sales journey for a new apparel brand.',
-    result: 'A sharper brand direction with campaigns designed to improve visibility and customer engagement.',
-    tags: ['Branding', 'Social media', 'Content'],
+    title: 'Vibetee — T-Shirt E-Commerce Project',
+    category: 'May 2026 – Jun 2026 · Brand strategy & E-commerce',
+    description: 'Built and promoted Vibetee, a trendy T-shirt e-commerce brand, focusing on branding, product positioning, and online sales journey.',
+    result: 'Created digital marketing campaigns and promotional creatives to improve brand visibility and customer engagement.',
+    tags: ['Digital Marketing', 'E-commerce', 'Branding', 'Social Media Marketing', 'Content Creation'],
   },
   {
     number: '02',
-    title: 'Dehatar Student Valuation',
-    category: 'Business analysis · Excel',
-    description: 'Explored revenue drivers, unit economics, supply-chain logistics, and operating margins across a farmer-to-buyer marketplace.',
-    result: 'Scenario analysis that clarified valuation assumptions and potential GMV growth.',
-    tags: ['Financial model', 'Research', 'Strategy'],
+    title: 'Dehaat Startup Valuation | LPU',
+    category: 'Nov 2025 – Dec 2025 · Business analysis & Excel',
+    description: 'Analyzed revenue drivers, unit economics, supply-chain logistics, and operating margins across farmer- and buyer-facing business verticals.',
+    result: 'Conducted scenario and sensitivity analyses on key valuation assumptions, including GMV growth rates.',
+    tags: ['Excel', 'Financial Modelling', 'Research', 'Strategy'],
   },
   {
     number: '03',
-    title: 'August Bioscience',
-    category: 'Campus ambassador · LPU',
-    description: 'Planned targeted outreach and created a campus-focused promotional approach for a bioscience brand.',
-    result: '10 orders and ₹5,333 in sales from 167 clicks at a 6% conversion rate.',
-    tags: ['Performance marketing', 'SEO', 'Ads'],
+    title: 'August Bioscience Product | LPU',
+    category: 'Nov 2025 – Dec 2025 · Campus Ambassador',
+    description: 'Drove skincare sales and brand awareness as a Campus Ambassador by executing targeted product outreach strategies and leveraging the official dashboard to track leads.',
+    result: 'Generated 10 orders and ₹5,333 in sales from 167 clicks at a 6% conversion rate.',
+    tags: ['Selling', 'Meta Ads', 'Google Ads', 'SEO'],
   },
   {
     number: '04',
-    title: 'Velora Brand',
-    category: 'Branding · Social media',
-    description: 'Created a launch and branding direction for a soft toy and jewellery line targeting students through market research.',
-    result: 'A relatable product story and Instagram presence shaped around student interests.',
-    tags: ['Market research', 'Instagram', 'Positioning'],
+    title: 'Velora Brand | LPU',
+    category: 'Aug 2025 – Sep 2025 · Branding & Social media',
+    description: 'Led the launch and branding of a soft toy and jewellery line targeting students through market research.',
+    result: 'Executed on-ground promotions and Instagram engagement to build brand awareness and drive product inquiries.',
+    tags: ['Selling', 'Communication', 'Leadership', 'Market Research'],
   },
 ];
 
 const experience = [
-  { date: 'JUN — JUL 2026', role: 'Sales and Marketing Intern', company: 'The Times of India', copy: 'Achieved 55+ subscription sales through effective customer engagement and targeted sales strategies. Executed lead generation and customer acquisition activities to expand the customer base.' },
-  { date: '2025 — 2026', role: 'Marketing & Growth Projects', company: 'Independent / LPU', copy: 'Worked across e-commerce, campus campaigns, product positioning, social media strategy, and market research with a practical, hands-on approach.' },
-  { date: '2025', role: 'Campus Ambassador', company: 'August Bioscience · LPU', copy: 'Led promotional outreach and built a targeted campus campaign that converted attention into measurable sales.' },
+  {
+    date: 'JUN 2026 — JUL 2026',
+    role: 'Sales and Marketing Intern',
+    company: 'The Times of India',
+    copy: 'Achieved 55+ subscription sales through effective customer engagement and targeted sales strategies. Executed lead generation and customer acquisition activities to expand the customer base.',
+    skills: ['Sales', 'Communication', 'Negotiation']
+  },
 ];
 
 const toolsAndPlatforms = [
-  'MS Excel — Data Analysis',
-  'PowerPoint',
-  'Tableau',
+  'MS-Excel',
+  'Power Point',
   'Google Sheets',
   'Canva',
-  'IBM SPSS',
-  'Shopify',
   'WordPress',
+  'Shopify',
+  'SEMrush',
+  'Tableau',
+  'IBM SPSS',
   'Google Ads',
   'Google Analytics',
 ];
 
 const powerSkills = [
-  'Communication',
+  'Selling',
+  'Confidence and Assertiveness',
   'Leadership',
-  'Team Camaraderie',
-  'Strategic Thinker',
-  'Problem Solver',
+  'Team Coordination',
+  'Time Management',
+  'Planning',
+];
+
+const marketingSkills = [
+  'Market Research',
+  'Consumer Insights',
+  'Brand Positioning',
+  'Social Media Strategy',
 ];
 
 const credentials = [
-  { title: 'Yellow Belt Six Sigma', date: 'Jun 2026 — Jul 2026' },
-  { title: 'Data Analyst 101 — Advanced Data Analysis & Visualization', date: 'Nov 2025' },
-  { title: 'SEBI Investor Awareness Test', date: 'Oct 2025' },
-  { title: 'Bio-Fertilizer & Bio-Coated Agent Training', date: 'Jul 2024' },
-  { title: 'CME: Advanced Laboratory Techniques', date: 'May 2023' },
-  { title: 'Digital 101 Journey', date: 'Jun 2022' },
+  { title: 'Keyword Research Essentials — SEMrush Academy', date: 'Jun 2025 – Jul 2025' },
+];
+
+const extraCurriculars = [
+  {
+    title: 'Vision Vista 2026 Winner | Professional Enhancement Event | LPU',
+    date: 'Feb 2026',
+    desc: 'Won 1st place by demonstrating excellence in professional communication, problem-solving, teamwork, and presentation skills.'
+  },
+  {
+    title: 'Visionary Voices Club | LPU',
+    date: 'Dec 2025',
+    desc: 'Actively participated in the Visionary Voices Club at Lovely Professional University (LPU), taking part in "Pitch My Persona" and Group Discussion events to enhance communication, confidence, public speaking, and professional presentation skills.'
+  }
 ];
 
 const education = [
-  { year: '2025 — Present', school: 'Lovely Professional University', course: 'Master of Business Administration — Digital Marketing and Entrepreneurship', place: 'Phagwara, Punjab' },
-  { year: '2022 — 2025', school: 'Kalinga Institute of Industrial Technology', course: 'Bachelor of Arts — Sociology Hons · 89.30%', place: 'Bhubaneswar, Odisha' },
+  {
+    year: 'Aug 2025 — Present',
+    school: 'Lovely Professional University',
+    course: 'Master of Business Administration — Digital Marketing and Entrepreneurship',
+    place: 'Phagwara, Punjab'
+  },
+  {
+    year: 'Oct 2022 — Aug 2025',
+    school: 'Kalinga Institute of Industrial Technology',
+    course: 'Bachelor of Arts — Sociology Hons · Percentage: 89.30%',
+    place: 'Bhubaneswar, Odisha'
+  },
 ];
 
 const ROLES = ['Digital Marketer', 'Brand Strategist', 'Growth Specialist', 'Business Analyst'];
 
 const QUICK_QUESTIONS = [
-  { label: 'About Tanmay', key: 'about', question: 'Tell me about Tanmay', answer: 'Tanmay Bighnesh Das is an MBA student specializing in Digital Marketing & Entrepreneurship at Lovely Professional University. He combines sociological insight with performance marketing, sales execution, and business strategy.' },
-  { label: 'Projects', key: 'projects', question: 'What projects has Tanmay worked on?', answer: 'Tanmay has built projects across E-commerce strategy (Vibee), Financial Valuation models (Dehatar), Campus Performance Marketing (August Bioscience — ₹5,333 sales), and Brand Positioning (Velora).' },
-  { label: 'Experience', key: 'experience', question: 'Tell me about Tanmay’s work experience', answer: 'Tanmay worked as a Sales & Marketing Intern at The Times of India (55+ subscription sales), served as Campus Ambassador for August Bioscience, and consults on independent growth projects.' },
-  { label: 'Skills', key: 'skills', question: 'What are Tanmay’s key skills & tools?', answer: 'Tools: MS Excel, Tableau, SPSS, Google Analytics, Google Ads, Shopify, Canva, PowerPoint. Power Skills: Communication, Leadership, Strategy, Problem Solving.' },
-  { label: 'Credentials', key: 'credentials', question: 'What certifications does Tanmay hold?', answer: 'Tanmay holds certifications in Six Sigma Yellow Belt, Advanced Data Analysis, SEBI Investor Awareness, Digital 101 Journey, and specialized training.' },
-  { label: 'Contact', key: 'contact', question: 'How can I get in touch with Tanmay?', answer: 'You can email Tanmay at tanmaybd153@gmail.com or connect with him on LinkedIn at linkedin.com/in/tanmay-bighnesh-das!' }
+  { label: 'About Tanmay', key: 'about', question: 'Tell me about Tanmay', answer: 'Tanmay Bighnesh Das is an MBA student specializing in Digital Marketing & Entrepreneurship at Lovely Professional University (+91-7847001821, tanmaybd153@gmail.com). He combines sociological insight with performance marketing, sales execution, and business strategy.' },
+  { label: 'Projects', key: 'projects', question: 'What projects has Tanmay worked on?', answer: 'Tanmay has built projects across Vibetee (T-Shirt E-Commerce), Dehaat Startup Valuation (Financial Modelling), August Bioscience (Skincare Campus Sales — ₹5,333 generated), and Velora Brand (Soft toys & Jewellery launch).' },
+  { label: 'Internship', key: 'internship', question: 'Tell me about Tanmay’s internship', answer: 'Tanmay worked as a Sales and Marketing Intern at The Times of India (Jun 2026 - Jul 2026), achieving 55+ subscription sales through targeted customer engagement and lead generation.' },
+  { label: 'Skills', key: 'skills', question: 'What are Tanmay’s key skills & tools?', answer: 'Tools: MS-Excel, Power Point, Google Sheets, Canva, WordPress, Shopify, SEMrush. Power Skills: Selling, Leadership, Planning. Marketing: Market Research, Consumer Insights, Brand Positioning, Social Media Strategy.' },
+  { label: 'Certifications', key: 'certifications', question: 'What certifications does Tanmay hold?', answer: 'Tanmay holds the Keyword Research Essentials certification from SEMrush Academy (Jun 2025 – Jul 2025) and won 1st place in Vision Vista 2026 at LPU.' },
+  { label: 'Contact', key: 'contact', question: 'How can I get in touch with Tanmay?', answer: 'Email: tanmaybd153@gmail.com | Phone: +91-7847001821 | LinkedIn: linkedin.com/in/tanmay-bighnesh-das' }
 ];
 
 function Portrait({ className = '' }: { className?: string }) {
@@ -227,20 +259,20 @@ function App() {
         const lower = qText.toLowerCase();
         if (lower.includes('about') || lower.includes('who')) {
           responseText = QUICK_QUESTIONS[0].answer;
-        } else if (lower.includes('project') || lower.includes('work') || lower.includes('portfolio')) {
+        } else if (lower.includes('project') || lower.includes('work') || lower.includes('portfolio') || lower.includes('vibetee')) {
           responseText = QUICK_QUESTIONS[1].answer;
-        } else if (lower.includes('experience') || lower.includes('job') || lower.includes('intern')) {
+        } else if (lower.includes('intern') || lower.includes('times') || lower.includes('job')) {
           responseText = QUICK_QUESTIONS[2].answer;
         } else if (lower.includes('skill') || lower.includes('tool') || lower.includes('excel')) {
           responseText = QUICK_QUESTIONS[3].answer;
-        } else if (lower.includes('credential') || lower.includes('certif') || lower.includes('sigma')) {
+        } else if (lower.includes('certif') || lower.includes('semrush') || lower.includes('winner') || lower.includes('vision')) {
           responseText = QUICK_QUESTIONS[4].answer;
-        } else if (lower.includes('contact') || lower.includes('email') || lower.includes('linkedin') || lower.includes('reach')) {
+        } else if (lower.includes('contact') || lower.includes('email') || lower.includes('linkedin') || lower.includes('phone') || lower.includes('reach')) {
           responseText = QUICK_QUESTIONS[5].answer;
         } else if (lower.includes('education') || lower.includes('lpu') || lower.includes('kiit') || lower.includes('mba')) {
-          responseText = 'Tanmay is pursuing an MBA in Digital Marketing & Entrepreneurship at LPU (2025-present) and completed BA Sociology Hons at KIIT with 89.30%.';
+          responseText = 'Tanmay is pursuing MBA (Digital Marketing & Entrepreneurship) at LPU (Aug 2025-Present) and completed BA Sociology Hons at KIIT with 89.30% (Oct 2022-Aug 2025).';
         } else {
-          responseText = "I'd be glad to tell you more! Tanmay specializes in Digital Marketing, Sales, and Growth Strategy. Feel free to reach out to him directly at tanmaybd153@gmail.com.";
+          responseText = "I'd be glad to tell you more! Tanmay specializes in Digital Marketing, Sales, and Growth Strategy. Contact him directly at tanmaybd153@gmail.com or +91-7847001821.";
         }
       }
       setChatMessages((prev) => [...prev, { id: (Date.now() + 1).toString(), sender: 'bot', text: responseText }]);
@@ -301,7 +333,7 @@ function App() {
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
         <nav className={menuOpen ? 'nav-open' : ''}>
-          {['home', 'about', 'work', 'experience', 'skills', 'credentials', 'education', 'contact'].map((item) => (
+          {['home', 'about', 'work', 'internship', 'skills', 'credentials', 'education', 'contact'].map((item) => (
             <a href={`#${item}`} key={item} onClick={closeMenu}>
               {item}
             </a>
@@ -390,6 +422,7 @@ function App() {
           </div>
         </div>
 
+        {/* SECTION 01: About */}
         <section className="about section-wrap" id="about">
           <div className="section-heading scroll-reveal">
             <span className="section-index">01</span>
@@ -422,6 +455,7 @@ function App() {
           </div>
         </section>
 
+        {/* SECTION 02: Projects */}
         <section className="work section-wrap" id="work">
           <div className="work-intro scroll-reveal">
             <div className="section-heading">
@@ -455,7 +489,8 @@ function App() {
           </div>
         </section>
 
-        <section className="experience section-wrap" id="experience">
+        {/* SECTION 03: Internships */}
+        <section className="experience section-wrap" id="internship">
           <div className="section-heading scroll-reveal">
             <span className="section-index">03</span>
             <h2>Where I’ve<br /><em>been learning.</em></h2>
@@ -469,13 +504,18 @@ function App() {
                   <p className="eyebrow">{item.company}</p>
                   <h3>{item.role}</h3>
                   <p>{item.copy}</p>
+                  <div className="chip-row" style={{ marginTop: '14px' }}>
+                    {item.skills.map((s) => (
+                      <span key={s}>{s}</span>
+                    ))}
+                  </div>
                 </div>
               </article>
             ))}
           </div>
         </section>
 
-        {/* NEW SECTION 04: What I bring (Skills & Tools) */}
+        {/* SECTION 04: Skills & Tools */}
         <section className="skills-section section-wrap" id="skills">
           <div className="section-heading scroll-reveal">
             <span className="section-index">04</span>
@@ -516,26 +556,56 @@ function App() {
               </div>
             </div>
           </div>
+
+          {/* Marketing Skills Row */}
+          <div className="skills-card scroll-reveal-scale" style={{ marginTop: '24px' }}>
+            <div className="skills-card-header">
+              <Sparkles size={22} className="text-mint" />
+              <h3>Marketing Skills</h3>
+            </div>
+            <div className="skills-pills-row">
+              {marketingSkills.map((mSkill) => (
+                <span className="skill-pill" key={mSkill}>
+                  {mSkill}
+                </span>
+              ))}
+            </div>
+          </div>
         </section>
 
-        {/* NEW SECTION 05: Credentials */}
+        {/* SECTION 05: Credentials & Extra-Curriculars */}
         <section className="credentials-section section-wrap" id="credentials">
           <div className="section-heading scroll-reveal">
             <span className="section-index">05</span>
-            <h2>Credentials<br /><em>& Milestones.</em></h2>
+            <h2>Credentials<br /><em>& Achievements.</em></h2>
           </div>
           <p className="section-intro-copy scroll-reveal">
-            Certifications and learning milestones supporting my analytical, business, and technical toolkit.
+            Certifications, awards, and learning milestones supporting my analytical, marketing, and business toolkit.
           </p>
 
           <div className="credentials-list">
-            {credentials.map((cred, idx) => (
-              <div className={`credential-card scroll-reveal-scale stagger-delay-${(idx % 3) + 1}`} key={cred.title}>
+            {credentials.map((cred) => (
+              <div className="credential-card scroll-reveal-scale" key={cred.title}>
                 <div className="credential-left">
                   <Award size={20} className="text-mint cred-icon" />
                   <h4>{cred.title}</h4>
                 </div>
                 <span className="credential-date">{cred.date}</span>
+              </div>
+            ))}
+
+            {extraCurriculars.map((ec) => (
+              <div className="credential-card scroll-reveal-scale" key={ec.title} style={{ flexDirection: 'column', alignItems: 'flex-start' }}>
+                <div className="credential-left" style={{ width: '100%', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                    <Trophy size={20} className="text-mint cred-icon" />
+                    <h4>{ec.title}</h4>
+                  </div>
+                  <span className="credential-date">{ec.date}</span>
+                </div>
+                <p style={{ margin: '10px 0 0 36px', color: 'var(--muted)', fontSize: '13px', lineHeight: '1.6' }}>
+                  {ec.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -576,6 +646,7 @@ function App() {
           </div>
         </section>
 
+        {/* SECTION 07: Contact */}
         <section className="contact section-wrap" id="contact">
           <div className="contact-orbit" />
           <div className="scroll-reveal-scale">
@@ -592,6 +663,9 @@ function App() {
             <a className="contact-email" href="mailto:tanmaybd153@gmail.com">
               tanmaybd153@gmail.com <ArrowUpRight size={21} />
             </a>
+            <p style={{ margin: '14px 0 0', color: 'var(--mint)', font: "500 13px 'DM Mono', monospace" }}>
+              Mobile: +91-7847001821
+            </p>
           </div>
           <div className="contact-footer">
             <span>Tanmay Bighnesh Das</span>
