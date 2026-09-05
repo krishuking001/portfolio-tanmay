@@ -321,10 +321,12 @@ h1 { font: 700 clamp(70px, 9vw, 120px)/.88 'Playfair Display', serif; letter-spa
 .floating-label span { color: #155750; }
 .label-top { top: -16px; right: -25px; }
 
-/* Repositioned Badge - Clean Floating Position */
+/* Repositioned Badge - Top Left Floating Position (Above name & text area) */
 .label-repositioned {
-  bottom: 95px;
-  left: -45px;
+  top: 45px;
+  left: -28px;
+  bottom: auto;
+  right: auto;
   animation-delay: 2s;
 }
 .label-repositioned svg { vertical-align: -2px; color: #155750; }
@@ -803,7 +805,7 @@ h1 { font: 700 clamp(70px, 9vw, 120px)/.88 'Playfair Display', serif; letter-spa
   .hero h1 { font-size: 74px; }
   .hero-card-wrap { width: 94%; }
   .label-top { right: -10px; }
-  .label-repositioned { left: -10px; bottom: 80px; }
+  .label-repositioned { left: -12px; top: 35px; bottom: auto; right: auto; }
   .hero-actions { flex-wrap: wrap; }
   .about, .work, .experience, .skills-section, .credentials-section, .education { padding: 90px 0; }
   .section-heading h2 { font-size: 57px; }
