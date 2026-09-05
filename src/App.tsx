@@ -14,6 +14,8 @@ import {
   Moon,
   Home,
   StickyNote,
+  Award,
+  Wrench,
 } from 'lucide-react';
 
 type Project = {
@@ -72,6 +74,36 @@ const experience = [
   { date: '2025', role: 'Campus Ambassador', company: 'August Bioscience · LPU', copy: 'Led promotional outreach and built a targeted campus campaign that converted attention into measurable sales.' },
 ];
 
+const toolsAndPlatforms = [
+  'MS Excel — Data Analysis',
+  'PowerPoint',
+  'Tableau',
+  'Google Sheets',
+  'Canva',
+  'IBM SPSS',
+  'Shopify',
+  'WordPress',
+  'Google Ads',
+  'Google Analytics',
+];
+
+const powerSkills = [
+  'Communication',
+  'Leadership',
+  'Team Camaraderie',
+  'Strategic Thinker',
+  'Problem Solver',
+];
+
+const credentials = [
+  { title: 'Yellow Belt Six Sigma', date: 'Jun 2026 — Jul 2026' },
+  { title: 'Data Analyst 101 — Advanced Data Analysis & Visualization', date: 'Nov 2025' },
+  { title: 'SEBI Investor Awareness Test', date: 'Oct 2025' },
+  { title: 'Bio-Fertilizer & Bio-Coated Agent Training', date: 'Jul 2024' },
+  { title: 'CME: Advanced Laboratory Techniques', date: 'May 2023' },
+  { title: 'Digital 101 Journey', date: 'Jun 2022' },
+];
+
 const education = [
   { year: '2025 — Present', school: 'Lovely Professional University', course: 'Master of Business Administration — Digital Marketing and Entrepreneurship', place: 'Phagwara, Punjab' },
   { year: '2022 — 2025', school: 'Kalinga Institute of Industrial Technology', course: 'Bachelor of Arts — Sociology Hons · 89.30%', place: 'Bhubaneswar, Odisha' },
@@ -83,7 +115,8 @@ const QUICK_QUESTIONS = [
   { label: 'About Tanmay', key: 'about', question: 'Tell me about Tanmay', answer: 'Tanmay Bighnesh Das is an MBA student specializing in Digital Marketing & Entrepreneurship at Lovely Professional University. He combines sociological insight with performance marketing, sales execution, and business strategy.' },
   { label: 'Projects', key: 'projects', question: 'What projects has Tanmay worked on?', answer: 'Tanmay has built projects across E-commerce strategy (Vibee), Financial Valuation models (Dehatar), Campus Performance Marketing (August Bioscience — ₹5,333 sales), and Brand Positioning (Velora).' },
   { label: 'Experience', key: 'experience', question: 'Tell me about Tanmay’s work experience', answer: 'Tanmay worked as a Sales & Marketing Intern at The Times of India (55+ subscription sales), served as Campus Ambassador for August Bioscience, and consults on independent growth projects.' },
-  { label: 'Skills', key: 'skills', question: 'What are Tanmay’s key skills?', answer: 'Key skills include: Digital Marketing, Sales Strategy, Performance Ads, Market Research, Business Analytics (Excel), Brand Positioning, and Social Media Growth.' },
+  { label: 'Skills', key: 'skills', question: 'What are Tanmay’s key skills & tools?', answer: 'Tools: MS Excel, Tableau, SPSS, Google Analytics, Google Ads, Shopify, Canva, PowerPoint. Power Skills: Communication, Leadership, Strategy, Problem Solving.' },
+  { label: 'Credentials', key: 'credentials', question: 'What certifications does Tanmay hold?', answer: 'Tanmay holds certifications in Six Sigma Yellow Belt, Advanced Data Analysis, SEBI Investor Awareness, Digital 101 Journey, and specialized training.' },
   { label: 'Contact', key: 'contact', question: 'How can I get in touch with Tanmay?', answer: 'You can email Tanmay at tanmaybd153@gmail.com or connect with him on LinkedIn at linkedin.com/in/tanmay-bighnesh-das!' }
 ];
 
@@ -198,10 +231,12 @@ function App() {
           responseText = QUICK_QUESTIONS[1].answer;
         } else if (lower.includes('experience') || lower.includes('job') || lower.includes('intern')) {
           responseText = QUICK_QUESTIONS[2].answer;
-        } else if (lower.includes('skill') || lower.includes('tech') || lower.includes('excel')) {
+        } else if (lower.includes('skill') || lower.includes('tool') || lower.includes('excel')) {
           responseText = QUICK_QUESTIONS[3].answer;
-        } else if (lower.includes('contact') || lower.includes('email') || lower.includes('linkedin') || lower.includes('reach')) {
+        } else if (lower.includes('credential') || lower.includes('certif') || lower.includes('sigma')) {
           responseText = QUICK_QUESTIONS[4].answer;
+        } else if (lower.includes('contact') || lower.includes('email') || lower.includes('linkedin') || lower.includes('reach')) {
+          responseText = QUICK_QUESTIONS[5].answer;
         } else if (lower.includes('education') || lower.includes('lpu') || lower.includes('kiit') || lower.includes('mba')) {
           responseText = 'Tanmay is pursuing an MBA in Digital Marketing & Entrepreneurship at LPU (2025-present) and completed BA Sociology Hons at KIIT with 89.30%.';
         } else {
@@ -266,7 +301,7 @@ function App() {
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
         <nav className={menuOpen ? 'nav-open' : ''}>
-          {['home', 'about', 'work', 'experience', 'education', 'contact'].map((item) => (
+          {['home', 'about', 'work', 'experience', 'skills', 'credentials', 'education', 'contact'].map((item) => (
             <a href={`#${item}`} key={item} onClick={closeMenu}>
               {item}
             </a>
@@ -440,10 +475,77 @@ function App() {
           </div>
         </section>
 
+        {/* NEW SECTION 04: What I bring (Skills & Tools) */}
+        <section className="skills-section section-wrap" id="skills">
+          <div className="section-heading scroll-reveal">
+            <span className="section-index">04</span>
+            <h2>What I<br /><em>bring.</em></h2>
+          </div>
+          <p className="section-intro-copy scroll-reveal">
+            A practical toolkit combining digital platforms, data analysis, business communication, and structured problem-solving.
+          </p>
+
+          <div className="skills-container-grid">
+            {/* Card 1: Tools & Platforms */}
+            <div className="skills-card scroll-reveal-left">
+              <div className="skills-card-header">
+                <Wrench size={22} className="text-mint" />
+                <h3>Tools & Platforms</h3>
+              </div>
+              <div className="skills-pills-row">
+                {toolsAndPlatforms.map((tool) => (
+                  <span className="skill-pill" key={tool}>
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Card 2: Power Skills */}
+            <div className="skills-card scroll-reveal-right">
+              <div className="skills-card-header">
+                <Sparkles size={22} className="text-mint" />
+                <h3>Power Skills</h3>
+              </div>
+              <div className="skills-pills-row">
+                {powerSkills.map((skill) => (
+                  <span className="skill-pill pill-highlight" key={skill}>
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* NEW SECTION 05: Credentials */}
+        <section className="credentials-section section-wrap" id="credentials">
+          <div className="section-heading scroll-reveal">
+            <span className="section-index">05</span>
+            <h2>Credentials<br /><em>& Milestones.</em></h2>
+          </div>
+          <p className="section-intro-copy scroll-reveal">
+            Certifications and learning milestones supporting my analytical, business, and technical toolkit.
+          </p>
+
+          <div className="credentials-list">
+            {credentials.map((cred, idx) => (
+              <div className={`credential-card scroll-reveal-scale stagger-delay-${(idx % 3) + 1}`} key={cred.title}>
+                <div className="credential-left">
+                  <Award size={20} className="text-mint cred-icon" />
+                  <h4>{cred.title}</h4>
+                </div>
+                <span className="credential-date">{cred.date}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECTION 06: Education */}
         <section className="education section-wrap" id="education">
           <div className="education-top scroll-reveal">
             <div className="section-heading">
-              <span className="section-index">04</span>
+              <span className="section-index">06</span>
               <h2>The path<br /><em>so far.</em></h2>
             </div>
             <p>
