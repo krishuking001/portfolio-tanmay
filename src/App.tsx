@@ -388,13 +388,6 @@ function App() {
           </div>
 
           <div className="hero-card-wrap reveal delay-one">
-            <div className="floating-label label-top">
-              analytical <span>+</span> expressive
-            </div>
-            <div className="floating-label label-repositioned">
-              ideas meet <span>action</span> <Sparkles size={13} />
-            </div>
-
             <div className="profile-card">
               <div className="card-line" />
               <Portrait className="hero-portrait" />
