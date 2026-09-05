@@ -9,12 +9,10 @@ import {
   Menu,
   Sparkles,
   X,
-  MessageSquare,
   Send,
   Sun,
   Moon,
   Home,
-  FileText,
   StickyNote,
 } from 'lucide-react';
 
@@ -132,11 +130,30 @@ function App() {
     return () => clearTimeout(timer);
   }, [displayedText, isDeleting, roleIndex]);
 
-  // Scroll listener
+  // Scroll listener for header
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 36);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Intersection Observer for Aesthetic Scroll Reveal Animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    const elements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
   }, []);
 
   // Toggle Theme
@@ -218,15 +235,15 @@ function App() {
         </aside>
       )}
 
-      {/* Floating Action Controls (Bottom Left) */}
-      <div className="floating-controls-rail">
+      {/* TOP RIGHT FLOATING CONTROLS (Note, Theme, Home) */}
+      <div className="top-right-controls">
         <button
           className="control-btn"
           aria-label="Toggle Little Note"
           title="Toggle Note"
           onClick={() => setShowLittleNote((prev) => !prev)}
         >
-          <StickyNote size={17} />
+          <StickyNote size={16} />
         </button>
         <button
           className="control-btn"
@@ -234,10 +251,10 @@ function App() {
           title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
           onClick={toggleTheme}
         >
-          {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+          {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
         </button>
         <a href="#home" className="control-btn" aria-label="Go to Top" title="Home">
-          <Home size={17} />
+          <Home size={16} />
         </a>
       </div>
 
@@ -283,7 +300,7 @@ function App() {
               <em>I’m Tanmay.</em>
             </h1>
             
-            {/* Professional Typing Role Animation */}
+            {/* Typing Role Animation */}
             <div className="typing-role-wrapper">
               <span className="typing-prefix">A passionate </span>
               <span className="typing-highlight">{displayedText}</span>
@@ -307,7 +324,6 @@ function App() {
             <div className="floating-label label-top">
               analytical <span>+</span> expressive
             </div>
-            {/* Repositioned Badge - Top Left floating offset */}
             <div className="floating-label label-repositioned">
               ideas meet <span>action</span> <Sparkles size={13} />
             </div>
@@ -340,16 +356,16 @@ function App() {
         </div>
 
         <section className="about section-wrap" id="about">
-          <div className="section-heading">
+          <div className="section-heading scroll-reveal">
             <span className="section-index">01</span>
             <h2>A little<br /><em>about me.</em></h2>
           </div>
           <div className="about-grid">
-            <div className="about-image-frame">
+            <div className="about-image-frame scroll-reveal-left">
               <Portrait className="about-portrait" />
               <span className="image-caption">Curious by nature.<br />Intentional by choice.</span>
             </div>
-            <div className="about-copy">
+            <div className="about-copy scroll-reveal-right">
               <p className="large-copy">
                 I’m currently pursuing an <strong>MBA in Digital Marketing and Entrepreneurship</strong> at Lovely Professional University, where I’m building the bridge between creative thinking and business outcomes.
               </p>
@@ -372,7 +388,7 @@ function App() {
         </section>
 
         <section className="work section-wrap" id="work">
-          <div className="work-intro">
+          <div className="work-intro scroll-reveal">
             <div className="section-heading">
               <span className="section-index">02</span>
               <h2>Things I’ve<br /><em>created.</em></h2>
@@ -382,8 +398,12 @@ function App() {
             </p>
           </div>
           <div className="project-grid">
-            {projects.map((project) => (
-              <button className="project-folder" key={project.number} onClick={() => setActiveProject(project)}>
+            {projects.map((project, idx) => (
+              <button
+                className={`project-folder scroll-reveal-scale stagger-delay-${idx + 1}`}
+                key={project.number}
+                onClick={() => setActiveProject(project)}
+              >
                 <div className="folder-tab" />
                 <div className="project-top">
                   <span>{project.number}</span>
@@ -401,13 +421,13 @@ function App() {
         </section>
 
         <section className="experience section-wrap" id="experience">
-          <div className="section-heading">
+          <div className="section-heading scroll-reveal">
             <span className="section-index">03</span>
             <h2>Where I’ve<br /><em>been learning.</em></h2>
           </div>
           <div className="timeline">
-            {experience.map((item) => (
-              <article className="timeline-item" key={item.company}>
+            {experience.map((item, idx) => (
+              <article className={`timeline-item scroll-reveal-left stagger-delay-${idx + 1}`} key={item.company}>
                 <span className="timeline-dot" />
                 <div className="timeline-date">{item.date}</div>
                 <div className="timeline-content">
@@ -421,7 +441,7 @@ function App() {
         </section>
 
         <section className="education section-wrap" id="education">
-          <div className="education-top">
+          <div className="education-top scroll-reveal">
             <div className="section-heading">
               <span className="section-index">04</span>
               <h2>The path<br /><em>so far.</em></h2>
@@ -431,8 +451,8 @@ function App() {
             </p>
           </div>
           <div className="education-list">
-            {education.map((item) => (
-              <div className="education-item" key={item.school}>
+            {education.map((item, idx) => (
+              <div className={`education-item scroll-reveal stagger-delay-${idx + 1}`} key={item.school}>
                 <span>{item.year}</span>
                 <div>
                   <p className="eyebrow">{item.place}</p>
@@ -443,7 +463,7 @@ function App() {
               </div>
             ))}
           </div>
-          <div className="resume-strip">
+          <div className="resume-strip scroll-reveal-scale">
             <div>
               <p className="eyebrow">WANT THE FULL STORY?</p>
               <h3>Take a closer look at my resume.</h3>
@@ -456,19 +476,21 @@ function App() {
 
         <section className="contact section-wrap" id="contact">
           <div className="contact-orbit" />
-          <p className="eyebrow">
-            <span className="eyebrow-dot" /> HAVE A GOOD IDEA?
-          </p>
-          <h2>
-            Let’s make<br />
-            <em>something count.</em>
-          </h2>
-          <p className="contact-copy">
-            Whether you’re looking to discuss a project, an opportunity, or simply connect professionally, I’d be happy to hear from you.
-          </p>
-          <a className="contact-email" href="mailto:tanmaybd153@gmail.com">
-            tanmaybd153@gmail.com <ArrowUpRight size={21} />
-          </a>
+          <div className="scroll-reveal-scale">
+            <p className="eyebrow">
+              <span className="eyebrow-dot" /> HAVE A GOOD IDEA?
+            </p>
+            <h2>
+              Let’s make<br />
+              <em>something count.</em>
+            </h2>
+            <p className="contact-copy">
+              Whether you’re looking to discuss a project, an opportunity, or simply connect professionally, I’d be happy to hear from you.
+            </p>
+            <a className="contact-email" href="mailto:tanmaybd153@gmail.com">
+              tanmaybd153@gmail.com <ArrowUpRight size={21} />
+            </a>
+          </div>
           <div className="contact-footer">
             <span>Tanmay Bighnesh Das</span>
             <span>© 2026 · Built with intent</span>
